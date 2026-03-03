@@ -1,14 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab 1: About</title>
-</head>
-<body>
-    
-    <header>
-        <h1> About </h1>
-    </header>
-</body>
+
+    <head>
+        
+        <!-- setting character set -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lab 1: Personal Portfolio</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+        <link href="css/styles.css" rel="stylesheet">
+    </head>
+
+    <body>
+        
+        <header>
+            <h1>Luis Valadez</h1>
+        </header>
+        <hr>
+        <nav id="menu">
+            <a href="index.html"> Home </a>
+            <a class="active" href="about.html"> About </a>
+            <a href="contact.html"> Contact Me</a>
+        </nav>
+
+        <div id="content">
+            <table>
+                <tr id="table-header">
+                    <td><strong>Programming Language</strong></td>
+                    <td><strong>Years Experience</strong></td>
+                </tr>
+                <tr class="table-row">
+                    <td>Java</td>
+                    <td>3</td>
+                </tr>
+                <tr class="table-row">
+                    <td>C++</td>
+                    <td>2</td>
+                </tr>
+                <tr class="table-row">
+                    <td>PHP</td>
+                    <td>1</td>
+                </tr>
+            </table>
+
+            <ul>
+                <li><span class="hobby">Exercise</span>: I love going for runs with my dog as by my running companion.</li>
+                <li><span class="hobby">Traveling</span>: I try to go explore new places, states or countries as much as I can.</li>
+                <li><span class="hobby">Food</span>: Along with traveling, I enjoy trying new dishes everywhere I go.</li>
+                <li><span class="hobby">Programming</span>: When I sit down to code the hours fly by -sometimes spending the whole day!</li>
+            </ul>
+
+        </div>
+
+        <footer>
+            <hr>
+            <figure>
+                <img src="img/csumb_logo.jpg" alt="California State University Monterey Bay logo">
+            </figure>
+            <div>
+                CST336 Internet Programming. 2026&copy; Luis Valadez <br>
+                <strong>Disclaimer:</strong> The information in this webpage is fictitious. <br>
+            </div>
+        </footer>
+        
+    </body>
+
 </html>
