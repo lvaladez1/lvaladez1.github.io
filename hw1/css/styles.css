@@ -16,6 +16,15 @@ figure {
     display: block;
 }
 
+#main-img {
+    max-width: 1000px;
+    max-height: 1200px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
 .navbar {
     display: flex;
     justify-content: space-evenly;
@@ -53,6 +62,14 @@ section{
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+}
+
+article {
+    background-color: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .emphasize {
