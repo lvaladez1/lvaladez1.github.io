@@ -57,7 +57,8 @@ function checkGuess() {
     feedback.style.color = 'orange';
     if (guess == randomNumber) {
         playerWins++;
-        feedback.textContent = 'You guess it! You Won!';
+        attemptsLeftFeedback.textContent = attemptsLeft + ' attempt(s) left';
+        feedback.textContent = 'You guessed it! You Won!';
         feedback.style.color = 'darkgreen';
         gameOver();
     } else {
