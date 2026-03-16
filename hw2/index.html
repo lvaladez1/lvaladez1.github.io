@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW2: US Geography</title>
+    <link rel="icon" type="image/favicon" href="img/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.2/underscore-umd-min.js"> </script>
+</head>
+<body class="text-center">
+    <h1 class="p-5 mb-2 bg-primary text-white">US Geography Quiz</h1>
+    
+    <!-- First Question -->
+    <h3><span id="markImg1"></span> What is the capital of California?</h3>
+    <input type="text" id="q1">
+    <br><br>
+    <div id="q1Feedback"></div>
+    <br><br>
+
+    <!-- Second Question -->
+    <h3><span id="markImg2"></span>What is the longest river?</h3>
+     
+    <select id="q2">
+        <option value="">Select One</option>
+        <option value="ms">Mississippi</option>
+        <option value="mo">Missouri</option>
+        <option value="co">Colorado</option>
+        <option value="de">Delaware</option>
+    </select>
+    <br><br>
+    <div id="q2Feedback"></div>
+    <br><br>
+
+    <!-- Third Question -->
+    <h3><span id="markImg3"></span>What presidents are carved into mount Rushmore?</h3>
+
+    <input type="checkbox" id="Jackson"> <label for="Jackson">A.Jackson</label>
+    <input type="checkbox" id="Franklin"> <label for="Franklin">B.Franklin</label>
+    <input type="checkbox" id="Jefferson"> <label for="Jefferson">T.Jefferson</label>
+    <input type="checkbox" id="Roosevelt"> <label for="Roosevelt">T.Roosevelt</label>
+    <br><br>
+    <div id="q3Feedback"></div>
+    <br><br>
+
+    <!-- Fourth Question -->
+    <h3><span id="markImg4"></span>What is the smallest US State?</h3>
+
+    <div id="q4Choices"></div>
+    <br><br>
+    <div id="q4Feedback"></div>
+    <br><br>
+
+    <!-- Fifth Question -->
+    <h3><span id="markImg5"></span>What state contains the highest point in the U.S.?</h3>
+
+    <select id="q5">
+        <option value=""></option>
+        <option value=""
+    </select>
+
+    <!-- Sixth Question -->
+
+    <!-- Seventh Question -->
+
+    <!-- Eighth Question -->
+
+    <!-- Ninth Question -->
+
+    <!-- Tenth Question -->
+
+    <!-- Validation && Submission -->
+    <h3 id="validationFdbk" class="bg-danger text-white"></h3>
+    <button type="button" class="btn btn-danger">Submit Quiz</button>
+
+    <br>
+    <h2 id="totalScore" class="text-info"></h2>
+    <h2 id="congrats" class="text-info"></h2>
+
+    <h3 id="totalAttempts"></h3>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
