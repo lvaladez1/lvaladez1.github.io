@@ -57,7 +57,7 @@ function isFormValid() {
        notAnswered(6);
        isValid = false;
     } // Question 6
-    if (document.querySelector(`input[name='q7']:checked`) == '') {
+    if (document.querySelector(`input[name='q7']:checked`) == null) {
         notAnswered(7);
         isValid = false;
     } // Question 7
