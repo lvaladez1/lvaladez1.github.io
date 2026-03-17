@@ -1,0 +1,43 @@
+body {
+    background-image: url('../img/merican-flag.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(255,255,255,0.8);
+    z-index: -1;
+}
+
+.container {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 40px;
+    background: rgba(196, 196, 196, 0.94);
+    border-radius: 12px;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+label {
+    margin-right: 15px;
+}
+
+#totalScore {
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#totalAttempts {
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 20px;
+}
