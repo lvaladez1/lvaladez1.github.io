@@ -78,6 +78,7 @@ async function displayStates() {
 
 async function checkUsername() {
     let username = document.querySelector('#username').value;
+    username = username.replaceAll(' ', '_');
     let url = `https://csumb.space/api/usernamesAPI.php?username=${username}`;
     let response = await fetch(url);
     let data = await response.json();
