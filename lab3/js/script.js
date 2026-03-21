@@ -1,3 +1,13 @@
+const neonCyan = getComputedStyle(document.documentElement)
+    .getPropertyValue('--neon-cyan')
+    .trim();
+const signalOrange = getComputedStyle(document.documentElement)
+    .getPropertyValue('--signal-orange')
+    .trim();
+const warningRed = getComputedStyle(document.documentElement)
+    .getPropertyValue('--warning-red')
+    .trim();
+
 // Event listeners
 document.querySelector('#zip').addEventListener('change', displayCity);
 document.querySelector('#state').addEventListener('change', displayCounties);
@@ -22,9 +32,12 @@ async function displayCity() {
         let url = `https://csumb.space/api/cityInfoAPI.php?zip=${zipCode}`;
         let response = await fetch(url);
         let data = await response.json();
-        // console.log(data);
+
+        document.querySelector('#zipError').innerHTML = '';
+
         if (data == false) {
             document.querySelector('#zipError').innerHTML = "Zip code not found";
+            document.querySelector('#zipError').style.color = warningRed;
         } else {
             document.querySelector('#city').innerHTML = data.city;
             document.querySelector('#latitude').innerHTML = data.latitude;
@@ -71,10 +84,11 @@ async function checkUsername() {
     let usernameError = document.querySelector('#usernameError');
     if (data.available) {
         usernameError.innerHTML = 'Username available!';
-        usernameError.style.color = 'green';
+        usernameError.style.color = neonCyan;
+        localStorage.setItem('username', username);
     } else {
         usernameError.innerHTML = 'Username taken'
-        usernameError.style.color = 'red';
+        usernameError.style.color = warningRed;
     }
 }
 
@@ -84,6 +98,7 @@ async function suggestPassword() {
     let data = await response.json();
     let suggestedPassword = document.querySelector('#suggestedPwd');
     suggestedPassword.innerHTML = `Suggested password: ${data.password}`;
+    suggestedPassword.style.color = signalOrange;
 }
 
 
@@ -98,6 +113,7 @@ function validateForm(e) {
 
     if (username.length == 0) {
         document.querySelector('#usernameError').innerHTML = 'Username Required!';
+        document.querySelector('#usernameError').style.color = warningRed;
         isValid = false;
     }
 
@@ -106,6 +122,7 @@ function validateForm(e) {
             passwordError.innerHTML = '';
         } else {
             passwordError.innerHTML = 'Password missing requirement:';
+            passwordError.style.color = warningRed;
             if (password.length < 6) {
                 passwordError.innerHTML += '<br><span>6 characters minimum</span>';
             }
@@ -116,9 +133,11 @@ function validateForm(e) {
         }
     } else if (password == '') {
         passwordError.innerHTML = 'Password required!';
+        passwordError.style.color = warningRed;
         isValid = false;
     } else if (retypedPassword == '') {
         passwordError.innerHTML = 'Type password again box cannot be left blank';
+        passwordError.style.color = warningRed;
         isValid = false;
     }
 

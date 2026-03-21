@@ -6,43 +6,100 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Sign Up Page</title>
     <link rel='icon' href='img/favicon.png'>
+    <link rel='stylesheet' href='css/style.css'>
 </head>
 
 <body>
-    <h1>Sign Up</h1>
+    <div class="heading">
+        <h1 class='hero_title glitch' data-text='Sign Up'>Sign Up</h1>
+    </div>
 
-    <form id='signupForm' action="welcome.html">
-        First Name:<input type='text' name='fName'><br>
-        Last Name:<input type='text' name='lName'><br>
-        Gender:
-        <input type='radio' name='gender' value='m'>Male<br>
-        <input type='radio' name='gender' value='f'>Female<br>
-        Zip Code: <input type='text' id='zip' name='zip'><span id='zipError'></span><br>
-        City: <span id='city'></span> <br>
-        Latitude: <span id="latitude"></span><br>
-        Longitude: <span id="longitude"></span><br>
+    <div class="panel">
+        <form id="signupForm" class="container" action="welcome.html">
 
-        State:
-        <select id='state' name='state'>
-            <option>Select one</option>
-        </select> <br>
+            <div class="field">
+                <label class="label" for="fName">First Name</label>
+                <input class="input" type="text" id="fName" name="fName">
+            </div>
 
-        Select a County: <select id='county'></select><br>
+            <div class="field">
+                <label class="label" for="lName">Last Name</label>
+                <input class="input" type="text" id="lName" name="lName">
+            </div>
 
-        Desired Username:
-        <input type='text' id='username'><br><br>
-        <span id="usernameError"></span><br>
-        Password:
-        <input id="password" type='password'>
-        <span id='suggestedPwd'></span><br>
-        Type Password Again: 
-        <input id='retypedPassword' type='password'><br>
-        <span id='passwordError'></span><br>
+            <div class="field">
+                <span class="label">Gender</span>
+                <label><input type="radio" name="gender" value="m"> Male</label>
+                <label><input type="radio" name="gender" value="f"> Female</label>
+            </div>
 
-        <input type="submit" value="Sign Up!">
-    </form>
+            <div class="field">
+                <label class="label" for="zip">Zip Code</label>
+                <input class="input" type="number" id="zip" name="zip">
+                <span id="zipError"></span>
+            </div>
 
-    <script src="js/script.js"></script>
+            <div class="field">
+                <span class="label">City</span>
+                <span id="city"></span>
+            </div>
+
+            <div class="field">
+                <span class="label">Latitude</span>
+                <span id="latitude"></span>
+            </div>
+
+            <div class="field">
+                <span class="label">Longitude</span>
+                <span id="longitude"></span>
+            </div>
+
+            <div class="field">
+                <label class="label" for="state">State</label>
+                <select id="state" name="state" class="input">
+                    <option>Select one</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label class="label" for="county">County</label>
+                <select id="county" class="input"></select>
+            </div>
+
+            <div class="field">
+                <label class="label" for="username">Desired Username</label>
+                <input class="input" type="text" id="username">
+                <span id="usernameError"></span>
+            </div>
+
+            <div class="field">
+                <label class="label" for="password">Password</label>
+                <input id="password" class="input" type="password">
+                <span id="suggestedPwd"></span>
+            </div>
+
+            <div class="field">
+                <label class="label" for="retypedPassword">Type Password Again</label>
+                <input id="retypedPassword" class="input" type="password">
+                <span id="passwordError"></span>
+            </div>
+
+            <input class="button" type="submit" value="Sign Up!">
+        </form>
+    </div>
+
+    <footer class="footer">
+        <hr class="footer_rule">
+        <figure class="footer_logo">
+            <img src="img/csumb_logo.jpg" alt="California State University Monterey Bay logo">
+        </figure>
+        <div class="footer_text">
+            CST336 Internet Programming. 2026&copy; Luis Valadez <br>
+            <strong>Disclaimer:</strong> The information in this webpage is fictitious. <br>
+        </div>
+    </footer>
+
+    <script src='js/script.js'></script>
 
 </body>
 
