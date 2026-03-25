@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Rick & Morty search</h1>
+
+  <div class="wrapper">
+
+    <div class="controls">
+      <form>
+        <p>
+          <label for="search">Search by Character: </label>
+          <input type="text" id="character-search" class="search">
+        </p>
+        <p>
+          <label for="search">Search by Location: </label>
+          <input type="text" id="location-search" class="search">
+        </p>
+        <p>
+          <label for="search">Search by Episode: </label>
+          <input type="text" id="episode-search" class="search">
+        </p>
+        <p>
+          <button id="submit">Submit search</button>
+        </p>
+      </form>
+    </div>
+
+    <div id="results">
+      <section id="section">
+      </section>
+
+      <nav id="prev" class="nav">
+      <button>Previous 20</button>
+      </nav>
+      <nav id="next" class="nav">
+      <button>Next 20</button>
+      </nav>
+
+      <section id="end">
+      </section>
+    </div>
+
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
