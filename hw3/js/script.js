@@ -12,6 +12,10 @@ const resultsSection = document.querySelector('#results');
 const section = document.querySelector('#section');
 const endMessage = document.querySelector('#end');
 const nav = document.querySelector('nav');
+const episodeInput = document.querySelector('#episode-search');
+const episodeMessage = document.querySelector('.episode-message');
+const characterInput = document.querySelector('#character-search');
+const locationInput = document.querySelector('#location-search');
 
 // Hide the "Previous"/"Next" navigation to begin with, as we don't need it immediately
 nav.style.display = 'none';
@@ -26,6 +30,24 @@ nextBtn.addEventListener('click', nextPage);
 previousBtn.addEventListener('click', previousPage);
 searchForm.addEventListener('submit', submitSearch);
 
+// When typing in character → clear others
+characterInput.addEventListener('input', () => {
+    locationInput.value = '';
+    episodeInput.value = '';
+});
+
+// When typing in location → clear others
+locationInput.addEventListener('input', () => {
+    characterInput.value = '';
+    episodeInput.value = '';
+});
+
+// When typing in episode → clear others
+episodeInput.addEventListener('input', () => {
+    characterInput.value = '';
+    locationInput.value = '';
+});
+
 function submitSearch(e) {
     e.preventDefault();
     pageNumber = 1;
@@ -35,10 +57,12 @@ function submitSearch(e) {
 async function fetchResults() {
     let cSearch = characterSearch.value;
     let lSearch = locationSearch.value;
-    let eSearch = episodeSearch.value.replaceAll(' ', '');
+    let eSearch = episodeSearch.value.replaceAll(' ', '').toLowerCase();
     let url = baseURL;
 
+    clearSection();
     endMessage.innerHTML = '';
+    endMessage.classList.remove('controls');
 
     if (cSearch.length > 0) {
         url += `character?page=${pageNumber}&name=${cSearch}`;
@@ -54,6 +78,7 @@ async function fetchResults() {
         } catch (error) {
             console.log(`Error fetching results: ${error}`);
             endMessage.innerHTML = `No results for: ${cSearch}`;
+            endMessage.classList.add('controls');
             clearSection();
             updatePagination(0);
         }
@@ -72,6 +97,7 @@ async function fetchResults() {
         } catch (error) {
             console.log(`Error fetching results: ${error}`);
             endMessage.innerHTML = `No results for: ${lSearch}`;
+            endMessage.classList.add('controls');
             clearSection();
             updatePagination(0);
         }
@@ -90,6 +116,7 @@ async function fetchResults() {
         } catch (error) {
             console.log(`Error fetching results: ${error}`);
             endMessage.innerHTML = `No results for: ${eSearch}`;
+            endMessage.classList.add('controls');
             clearSection();
             updatePagination(0);
         }
@@ -108,6 +135,7 @@ async function fetchResults() {
         } catch (error) {
             console.log(`Error fetching results: ${error}`);
             endMessage.innerHTML = `No results for: ${eSearch}`;
+            endMessage.classList.add('controls');
             clearSection();
             updatePagination(0);
         }
@@ -154,6 +182,7 @@ function displayCharacterResults(data) {
         }
 
         card.append(pGender, pLocation, pEpisode);
+        card.classList.add('controls');
         section.append(card);
     }
 }
@@ -180,6 +209,7 @@ function displayLocationResults(data) {
         pResident.innerHTML = `Residents: ${makeLinkList(location.residents)}`;
 
         card.append(h2, pDimension, pType, pResident);
+        card.classList.add('controls');
         section.append(card);
     }
 }
@@ -218,6 +248,7 @@ function displayEpisodeCards(episodes) {
         pCharacters.textContent = `Characters: ${makeNumberList(episode.characters)}`;
 
         card.append(h2, pEpisode, pAirDate, pCharacters);
+        card.classList.add('controls');
         section.append(card);
     }
 }

@@ -4,11 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>HW3: Web APIs and Fetch</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <h1>Rick & Morty search</h1>
+  <h1 class="glitch" data-text="Rick & Morty search ">Rick & Morty search</h1>
 
   <div class="wrapper">
 
@@ -24,7 +25,11 @@
         </p>
         <p>
           <label for="search">Search by Episode: </label>
-          <input type="text" id="episode-search" class="search">
+          <input type="text" id="episode-search" class="search" placeholder="Enter 'all' for all episodes">
+        <ul class="episode-message">Episodes can be searched by:
+          <li>entering 1 episode </li> 
+          <li>enterying multiple episodes ex: 1, 2, 3</li>
+        </ul>
         </p>
         <p>
           <button id="submit">Submit search</button>
@@ -36,12 +41,14 @@
       <section id="section">
       </section>
 
-      <nav id="prev" class="nav">
-      <button>Previous 20</button>
-      </nav>
-      <nav id="next" class="nav">
-      <button>Next 20</button>
-      </nav>
+      <div id="nav-container">
+        <nav id="prev" class="nav">
+          <button>Previous 20</button>
+        </nav>
+        <nav id="next" class="nav">
+          <button>Next 20</button>
+        </nav>
+      </div>
 
       <section id="end">
       </section>

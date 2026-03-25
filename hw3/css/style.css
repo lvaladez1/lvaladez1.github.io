@@ -1,0 +1,380 @@
+/* =========================
+   Core
+   ========================= */
+
+:root {
+    --bg: #060606;
+    --surface: #111111;
+    --surface-2: #1a1a1a;
+    --text: #f5f5f5;
+    --muted: #b8b8b8;
+    --line: #2b2b2b;
+
+    --neon-cyan: #00daf2;
+    --neon-purple: #8422ed;
+    --signal-orange: #ff6a00;
+    --acid-yellow: #d7ff00;
+    --warning-red: #ff3040;
+
+    --primary: var(--acid-yellow);
+    --secondary: var(--neon-cyan);
+    --highlight: var(--acid-yellow);
+    --danger: var(--warning-red);
+
+    --font-ui: "Inter", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+    --font-display: "Arial Black", Impact, Haettenschweiler, sans-serif;
+
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2rem;
+
+    --grid-size: 24px;
+    --border-width: 3px;
+}
+
+/* =========================
+   Base
+   ========================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    color-scheme: dark;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-ui);
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: var(--grid-size) var(--grid-size);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.07;
+    background-image: radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0);
+    background-size: 6px 6px;
+    mix-blend-mode: screen;
+}
+
+/* =========================
+   Typography
+   ========================= */
+
+h1,
+h2 {
+    margin: 0 0 var(--space-4);
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    line-height: 0.95;
+    letter-spacing: 0.04em;
+    color: var(--primary);
+    text-shadow: 2px 2px 0 #000;
+}
+
+h1 {
+    text-align: center;
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+}
+
+/* =========================
+   Inputs
+   ========================= */
+
+label {
+    display: block;
+    margin-bottom: var(--space-2);
+    font-size: 1rem !important;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--primary);
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: var(--border-width) solid var(--line);
+    background: #000;
+    color: var(--text);
+    font: inherit;
+    font-size: 1.1rem !important;
+    outline: none;
+    box-shadow: inset 0 0 0 1px transparent;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--secondary);
+    box-shadow:
+        0 0 0 2px #000,
+        0 0 0 4px var(--secondary);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #7d7d7d;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.field {
+    margin-bottom: 1.25rem;
+}
+
+
+/* =========================
+   Layout
+   ========================= */
+
+.wrapper {
+    width: min(1200px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================
+   Panels
+   ========================= */
+.controls {
+    width: 100%;
+    position: relative;
+    background: var(--surface);
+    border: 3px solid var(--primary);
+    padding: var(--space-5);
+    box-shadow: 0 0 0 2px #000, 0 0 8px var(--primary), 6px 6px 0 #000;
+    overflow: hidden;
+}
+
+.controls p {
+    color: var(--text);
+    font-size: 1.2rem;
+    letter-spacing: 0.06em;
+}
+
+.controls::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 72px;
+    height: 72px;
+    background: linear-gradient(135deg, transparent 49%, var(--neon-purple) 60%, var(--neon-cyan) 75%, var(--acid-yellow) 20%);
+    opacity: 0.9;
+}
+
+/* =========================
+   Form
+   ========================= */
+
+form {
+    margin: 0;
+}
+
+form p {
+    margin: 0 0 1.25rem;
+}
+
+form ul {
+    list-style-position: inside;
+    font-size: 0.95rem;
+    color: var(--muted) !important;
+    margin-top: 0.5rem;
+}
+
+form li {
+    padding-left: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: var(--space-2);
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--primary);
+}
+
+.search {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: var(--border-width) solid var(--line);
+    background: #000;
+    color: var(--text);
+    font: inherit;
+    outline: none;
+    box-shadow: inset 0 0 0 1px transparent;
+}
+
+.search:focus {
+    border-color: var(--secondary);
+    box-shadow:
+        0 0 0 2px #000,
+        0 0 0 4px var(--secondary);
+}
+
+.search::placeholder {
+    color: #7d7d7d;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+/* =========================
+   Buttons
+   ========================= */
+
+button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 0.75rem 1rem;
+    border: var(--border-width) solid var(--primary);
+    background: var(--primary);
+    color: #000;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: transform 120ms ease, box-shadow 120ms ease;
+    box-shadow: 4px 4px 0 0 #000;
+    font-family: inherit;
+}
+
+button:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 0 #000;
+}
+
+button:active {
+    transform: translate(0, 0);
+    box-shadow: 2px 2px 0 0 #000;
+}
+
+#submit {
+    width: 100%;
+}
+
+/* =========================
+   Results area
+   ========================= */
+
+#section {
+    /* #end { */
+
+    min-height: 80px;
+}
+
+#section {
+    margin-bottom: 1.5rem;
+}
+
+#end {
+    color: var(--warning-red);
+    font-size: 3rem !important;
+}
+
+/* =========================
+   Glitch / High-Contrast Effects
+   ========================= */
+
+.glitch {
+    position: relative;
+    color: var(--neon-purple);
+    text-align: center;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.glitch::before {
+    color: var(--highlight);
+    transform: translate(3px, -1px);
+    opacity: 0.8;
+    clip-path: inset(0 0 60% 0);
+}
+
+.glitch::after {
+    color: var(--secondary);
+    transform: translate(-3px, 1px);
+    opacity: 0.8;
+    clip-path: inset(45% 0 0 0);
+}
+
+/* =========================
+   Navigation
+   ========================= */
+
+#nav-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav {
+    display: inline-block;
+    margin-right: 1rem;
+    margin-top: 1rem;
+}
+
+.nav button {
+    background: var(--secondary);
+    border-color: var(--secondary);
+}
+
+#prev,
+#next {
+    display: inline-block;
+}
+
+/* =========================
+   Utility
+   ========================= */
+
+.hidden {
+    display: none;
+}
